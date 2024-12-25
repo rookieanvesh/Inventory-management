@@ -1,7 +1,9 @@
 package com.inventory.controllers;
 
-import com.inventory.models.Order;
+import com.inventory.dtos.CreateOrderDTO;
+import com.inventory.dtos.OrderResponseDTO;
 import com.inventory.services.OrderService;
+import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -17,17 +19,17 @@ public class OrderController {
     }
 
     @PostMapping
-    public ResponseEntity<Order> createOrder(@RequestBody Order order) {
-        return ResponseEntity.ok(orderService.createOrder(order));
+    public ResponseEntity<OrderResponseDTO> createOrder(@Valid @RequestBody CreateOrderDTO orderDTO) {
+        return ResponseEntity.ok(orderService.createOrder(orderDTO));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Order> getOrder(@PathVariable Long id) {
+    public ResponseEntity<OrderResponseDTO> getOrder(@PathVariable Long id) {
         return ResponseEntity.ok(orderService.getOrder(id));
     }
 
     @GetMapping
-    public ResponseEntity<Page<Order>> listOrders(Pageable pageable) {
+    public ResponseEntity<Page<OrderResponseDTO>> listOrders(Pageable pageable) {
         return ResponseEntity.ok(orderService.listOrders(pageable));
     }
 }

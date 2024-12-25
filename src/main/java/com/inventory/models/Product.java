@@ -1,8 +1,6 @@
 package com.inventory.models;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.math.BigDecimal;
 
@@ -11,32 +9,63 @@ import java.math.BigDecimal;
 public class Product {
     @Version
     private Long version;
-    //Getters and setters
-    @Setter
-    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    @Getter
-    @Setter
+
     @Column(unique = true)
     private String sku;
-
-    @Setter
-    @Getter
     private String name;
-
-    @Setter
-    @Getter
     private BigDecimal price;
-
-    @Setter
-    @Getter
     private Integer quantityInStock;
-
-    @Getter
-    @Setter
     private boolean active = true;
 
+    //Getters and setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getSku() {
+        return sku;
+    }
+
+    public void setSku(String sku) {
+        this.sku = sku;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public Integer getQuantityInStock() {
+        return quantityInStock;
+    }
+
+    public void setQuantityInStock(Integer quantityInStock) {
+        this.quantityInStock = quantityInStock;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 }

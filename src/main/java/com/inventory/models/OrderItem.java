@@ -16,7 +16,6 @@ public class OrderItem {
     private Integer quantity;
     private BigDecimal priceAtOrder;
 
-    //basic getters and setters without using lombok
     public Long getId() {
         return id;
     }
