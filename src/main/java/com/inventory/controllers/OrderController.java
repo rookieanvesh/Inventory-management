@@ -6,6 +6,7 @@ import com.inventory.services.OrderService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,8 @@ public class OrderController {
 
     @PostMapping
     public ResponseEntity<OrderResponseDTO> createOrder(@Valid @RequestBody CreateOrderDTO orderDTO) {
-        return ResponseEntity.ok(orderService.createOrder(orderDTO));
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(orderService.createOrder(orderDTO));
     }
 
     @GetMapping("/{id}")
