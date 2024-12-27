@@ -1,6 +1,6 @@
 # Inventory Management System 📦
 
-A robust Spring Boot application for managing product inventory and orders with a focus on simplicity and reliability.
+A robust and scalable Spring Boot application for managing product inventory and orders with a focus on simplicity and reliability.
 
 ## Overview 🎯
 - RESTful APIs for product and order management
